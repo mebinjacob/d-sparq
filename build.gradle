@@ -1,0 +1,61 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src"]
+        }
+        resources {
+      		include 'ShardInfo.properties'
+    }
+    }
+}
+
+group='d-sparq'
+sourceCompatibility = 1.6
+version = '1.0'
+jar {
+ from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Implementation-Title': 'd-sparq',
+                   'Implementation-Version': version
+    }
+    into('lib') {
+        from 'lib'
+    }
+}
+
+repositories {
+    mavenCentral()
+     maven {
+        url "http://nxparser.googlecode.com/svn/repository"
+    }
+    
+    flatDir {
+       dirs 'lib'
+   }
+}
+
+dependencies {
+	compile 'commons-logging:commons-logging:1.1.1',
+	 		'commons-logging:commons-logging-api:1.0.4',
+			'com.google.guava:guava:12.0',
+			'org.apache.hadoop:hadoop-core:1.0.3',
+			'redis.clients:jedis:2.1.0',
+			'org.apache.jena:jena-arq:2.9.2',
+			'org.apache.jena:jena-core:2.7.2',
+			'org.apache.jena:jena-iri:0.9.2',
+			'org.codehaus.jsr166-mirror:jsr166y:1.7.0',
+			'log4j:log4j:1.2.16',
+			'org.mongodb:mongo-java-driver:2.13.0-rc0',
+			'org.semanticweb.yars:nxparser:1.2.3',
+			'org.slf4j:slf4j-api:1.6.4',
+			'org.slf4j:slf4j-log4j12:1.6.4',
+			'xerces:xercesImpl:2.10.0',
+			'xml-apis:xml-apis:1.4.01'
+	compile name: 'jgrapht-jdk1.6'
+	compile name: 'rdf3x-java'		
+}
+

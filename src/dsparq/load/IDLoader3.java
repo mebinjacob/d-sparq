@@ -3,7 +3,6 @@ package dsparq.load;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -33,8 +32,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.util.Hashing;
-
-
 import dsparq.misc.Constants;
 import dsparq.misc.PropertyFileHandler;
 import dsparq.util.LRUCache;
