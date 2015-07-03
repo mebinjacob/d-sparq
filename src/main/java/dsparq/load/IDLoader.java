@@ -12,18 +12,16 @@ import org.openjena.riot.RiotReader;
 import org.openjena.riot.lang.LangNTriples;
 
 import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Node_Literal;
 import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.sparql.util.FmtUtils;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 
 import dsparq.misc.Constants;
 import dsparq.misc.HostInfo;
-import dsparq.misc.PropertyFileHandler;
 import dsparq.util.Util;
 
 
@@ -197,7 +195,7 @@ public class IDLoader {
 		
 //		HostInfo mongoSHostPort = propertyFileHandler.getMongoSHostInfo();
 		HostInfo mongoSHostPort = new HostInfo("ip-10-50-73-199.eu-west-1.compute.internal", 27017);
-		mongo = new Mongo(mongoSHostPort.getHost(), mongoSHostPort.getPort());
+		mongo = new MongoClient(mongoSHostPort.getHost(), mongoSHostPort.getPort());
 		DB adminDB = mongo.getDB(Constants.MONGO_ADMIN_DB);
 //		List<HostInfo> shardsHostInfo = propertyFileHandler.getAllShardsInfo();
 		List<HostInfo> shardsHostInfo = new ArrayList<HostInfo>();

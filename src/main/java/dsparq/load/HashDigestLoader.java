@@ -94,7 +94,7 @@ public class HashDigestLoader {
 					} else if (typeID == -1) {
 						doc.put(Constants.FIELD_NUMID, ignoreID);
 //						System.out.println(line + "|" + ignoreID);
-						ignoreID--;
+						ignoreID--;//TODO :- investogate -- further
 					}
 					
 					// not saving the string values here since they take lot of

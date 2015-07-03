@@ -1,21 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'maven'
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ["src"]
-        }
-        resources {
-      		include 'ShardInfo.properties'
-    }
-    }
-}
 
 group='d-sparq'
 sourceCompatibility = 1.6
 version = '1.0'
+
+eclipse {
+    classpath {
+       downloadSources=true
+    }
+}
+
 jar {
  from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest {
@@ -55,7 +50,11 @@ dependencies {
 			'org.slf4j:slf4j-log4j12:1.6.4',
 			'xerces:xercesImpl:2.10.0',
 			'xml-apis:xml-apis:1.4.01'
+			
 	compile name: 'jgrapht-jdk1.6'
 	compile name: 'rdf3x-java'		
+	
+	testCompile	'org.apache.mrunit:mrunit:1.1.0:hadoop1', 
+	 			'junit:junit:4.4'
 }
 

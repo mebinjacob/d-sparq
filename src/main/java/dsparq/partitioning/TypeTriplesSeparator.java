@@ -66,7 +66,8 @@ public class TypeTriplesSeparator extends Configured implements Tool{
  
 		private static class MultiFileOutput 
 			extends MultipleTextOutputFormat<Text, Text> {
-		     protected String generateFileNameForKeyValue(Text key, 
+		    @Override
+			protected String generateFileNameForKeyValue(Text key, 
 		    		 Text value, String name) {
 		    	 
 		    	 String line = key.toString();

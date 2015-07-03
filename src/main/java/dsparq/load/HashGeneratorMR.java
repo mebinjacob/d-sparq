@@ -67,6 +67,7 @@ public class HashGeneratorMR extends Configured implements Tool {
 			output.collect(new Text(nodes[1].toString() + 
 					Constants.TRIPLE_TERM_DELIMITER + 
 					Constants.PREDICATE_INDICATOR), new LongWritable(1)); 
+			System.out.println("The value of nodes[1] is " + nodes[1]);
 			if(nodes[1].toString().equals(Constants.RDF_TYPE_URI))
 				output.collect(new Text(nodes[2].toString() + 
 						Constants.TRIPLE_TERM_DELIMITER + 
