@@ -10,7 +10,7 @@ Following software are required in order to run d-sparq.
 1. MongoDB (http://www.mongodb.org)
 2. Java 1.6 or later (http://www.oracle.com/technetwork/java/index.html)
 3. Hadoop 1.0.3 (http://hadoop.apache.org)
-4. ant (http://ant.apache.org)
+4. Gradle 2.4
 5. Metis (http://glaros.dtc.umn.edu/gkhome/metis/metis/download). If a distributed graph partitioner can
 be used then it is better. But right now, did not find any freely available distributed graph partitioner.
 
@@ -20,7 +20,7 @@ Add the executables to PATH environment variable.
 
 ## Instructions 
 
-1. Download the source code and compile using ```ant jar```.
+1. Download the source code and compile using ```gradle build```.
 
 ##### Start MongoDB Sharded Cluster
 
